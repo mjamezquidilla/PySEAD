@@ -1,5 +1,6 @@
 import numpy as np 
 import matplotlib.pyplot as plt 
+np.set_printoptions(suppress=True)
 plt.style.use('fivethirtyeight')
 plt.rcParams['hatch.color'] = 'white'
 print("Positive Values for forces: right, up (righthand rule)")
@@ -1101,7 +1102,7 @@ class Frame_2D:
 
 
         # Storing of Variables lists
-        self.displacements_ = self.__Displacements(global_displacements)
+        self.displacements_ = self.__Displacements(np.around(global_displacements,4))
         self.displacements_array_ = global_displacements
         self.reactions_ = self.__Reactions(reactions, supports)
         self.K_global_ = K_global
@@ -1122,7 +1123,7 @@ class Frame_2D:
         new_member_forces_dict = {}
         for key in solved_member_forces:
             new_member_forces = solved_member_forces[key] + self.local_member_forces[key]
-            new_member_forces_dict.update({key: new_member_forces})
+            new_member_forces_dict.update({key: np.around(new_member_forces,4)})
         self.local_member_forces_solved_ = new_member_forces_dict
 
         # Step 11: Update Local Member Forces to its Member Class
