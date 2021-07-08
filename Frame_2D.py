@@ -1,5 +1,6 @@
 import numpy as np 
 import matplotlib.pyplot as plt 
+np.set_printoptions(suppress=True)
 plt.style.use('fivethirtyeight')
 plt.rcParams['hatch.color'] = 'white'
 np.set_printoptions(suppress=True)
